@@ -89,8 +89,7 @@ export default function SiteFooter() {
             color: "var(--text-dim)",
           }}
         >
-          Best viewed in 800×600 &nbsp;|&nbsp; Pepe&apos;s Blog © 2026
-          &nbsp;|&nbsp;
+          Pepega Designs &nbsp;|&nbsp; Pepe&apos;s Blog © 2026 &nbsp;|&nbsp;
           <a href="/guestbook" style={{ color: "var(--lime-bright)" }}>
             Sign the Lily Pad
           </a>

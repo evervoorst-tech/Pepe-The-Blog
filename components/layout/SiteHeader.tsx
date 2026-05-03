@@ -7,6 +7,7 @@ import {
   MStarburst,
   MTag,
 } from "@/components/Memphis";
+import SwampTicker from "../widgets/SwampTicker";
 
 const SKILLS: [string, string][] = [
   ["TypeScript", "var(--m-blue)"],
@@ -27,15 +28,46 @@ export default function SiteHeader() {
       }}
     >
       {/* Memphis background decorations */}
-      <MTriangle color="var(--m-yellow)" size={32} style={{ position: "absolute", top: 8, right: 24, opacity: 0.7 }} />
-      <MDiamond color="var(--m-coral)" size={22} style={{ position: "absolute", top: 16, right: 70, opacity: 0.6 }} />
-      <MCircle color="var(--m-blue)" size={18} style={{ position: "absolute", top: 6, left: 14, opacity: 0.5 }} />
-      <MTriangle color="var(--m-magenta)" size={18} style={{ position: "absolute", bottom: 20, left: 60, opacity: 0.5 }} />
-      <MCircle color="var(--m-orange)" size={14} style={{ position: "absolute", bottom: 8, right: 120, opacity: 0.6 }} />
-      <MDiamond color="var(--m-yellow)" size={14} style={{ position: "absolute", top: 4, left: 100, opacity: 0.4 }} />
+      <MTriangle
+        color="var(--m-yellow)"
+        size={32}
+        style={{ position: "absolute", top: 8, right: 24, opacity: 0.7 }}
+      />
+      <MDiamond
+        color="var(--m-coral)"
+        size={22}
+        style={{ position: "absolute", top: 16, right: 70, opacity: 0.6 }}
+      />
+      <MCircle
+        color="var(--m-blue)"
+        size={18}
+        style={{ position: "absolute", top: 6, left: 14, opacity: 0.5 }}
+      />
+      <MTriangle
+        color="var(--m-magenta)"
+        size={18}
+        style={{ position: "absolute", bottom: 20, left: 60, opacity: 0.5 }}
+      />
+      <MCircle
+        color="var(--m-orange)"
+        size={14}
+        style={{ position: "absolute", bottom: 8, right: 120, opacity: 0.6 }}
+      />
+      <MDiamond
+        color="var(--m-yellow)"
+        size={14}
+        style={{ position: "absolute", top: 4, left: 100, opacity: 0.4 }}
+      />
 
       {/* Title + nav */}
-      <div style={{ textAlign: "center", padding: "14px 60px 6px", position: "relative", zIndex: 1 }}>
+      <div
+        style={{
+          textAlign: "center",
+          padding: "14px 60px 6px",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
         <div
           style={{
             fontFamily: "var(--font-press-start), monospace",
@@ -46,9 +78,13 @@ export default function SiteHeader() {
             marginBottom: 5,
           }}
         >
-          <span className="blink" style={{ color: "var(--m-yellow)" }}>★</span>
+          <span className="blink" style={{ color: "var(--m-yellow)" }}>
+            ★
+          </span>
           {" PEPE'S BLOG "}
-          <span className="blink" style={{ color: "var(--m-yellow)" }}>★</span>
+          <span className="blink" style={{ color: "var(--m-yellow)" }}>
+            ★
+          </span>
         </div>
 
         <div
@@ -84,7 +120,9 @@ export default function SiteHeader() {
         <MDots color="var(--m-yellow)" cols={4} rows={2} gap={8} />
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {SKILLS.map(([label, color]) => (
-            <MTag key={label} color={color}>{label}</MTag>
+            <MTag key={label} color={color}>
+              {label}
+            </MTag>
           ))}
         </div>
         <div style={{ flex: 1 }} />
@@ -107,26 +145,7 @@ export default function SiteHeader() {
       </div>
 
       {/* Marquee ticker */}
-      <div
-        style={{
-          background: "#0a0a0a",
-          borderBottom: "2px solid var(--lily-green)",
-          padding: "3px 0",
-          overflow: "hidden",
-          whiteSpace: "nowrap",
-        }}
-      >
-        <marquee
-          scrollamount={3}
-          style={{
-            fontFamily: "var(--font-vt323), monospace",
-            fontSize: 16,
-            color: "var(--lime-bright)",
-          }}
-        >
-          *** SWAMP NEWS *** humidity at 94% — fly season is UPON US *** local mosquito spotted wearing a hat *** lily pad 7 still unoccupied *** RARE PEPE ALERT: feels good man confirmed *** ribbit ***
-        </marquee>
-      </div>
+      <SwampTicker />
     </header>
   );
 }
