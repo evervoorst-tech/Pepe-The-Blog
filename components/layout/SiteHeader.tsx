@@ -4,33 +4,40 @@ export default function SiteHeader() {
       style={{
         background: "var(--swamp-green)",
         borderBottom: "3px solid var(--lily-green)",
-        padding: "8px 0",
-        textAlign: "center",
       }}
     >
       <div
         style={{
-          fontFamily: "var(--font-press-start), monospace",
-          fontSize: "20px",
-          color: "var(--lily-green)",
-          textShadow: "2px 2px 0 #000",
-          marginBottom: "4px",
-          letterSpacing: "2px",
+          display: "flex",
+          alignItems: "center",
+          padding: "8px",
         }}
       >
-        <span className="blink" style={{ color: "#ff0" }}>★</span>
-        {" PEPE'S BLOG "}
-        <span className="blink" style={{ color: "#ff0" }}>★</span>
-      </div>
-      <div
-        style={{
-          fontFamily: "var(--font-vt323), monospace",
-          fontSize: "14px",
-          color: "var(--text-bright)",
-          marginBottom: "6px",
-        }}
-      >
-        :: Dispatches from the Swamp :: Est. MM-XXVI ::
+        <div style={{ flex: 1, textAlign: "center" }}>
+          <div
+            style={{
+              fontFamily: "var(--font-press-start), monospace",
+              fontSize: "20px",
+              color: "var(--lily-green)",
+              textShadow: "2px 2px 0 #000",
+              marginBottom: "4px",
+              letterSpacing: "2px",
+            }}
+          >
+            <span className="blink" style={{ color: "#ff0" }}>★</span>
+            {" PEPE'S BLOG "}
+            <span className="blink" style={{ color: "#ff0" }}>★</span>
+          </div>
+          <div
+            style={{
+              fontFamily: "var(--font-vt323), monospace",
+              fontSize: "14px",
+              color: "var(--text-bright)",
+            }}
+          >
+            :: Dispatches from the Swamp :: Est. MM-XXVI ::
+          </div>
+        </div>
       </div>
       <marquee
         scrollamount={3}

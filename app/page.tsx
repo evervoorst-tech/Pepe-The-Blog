@@ -4,7 +4,7 @@ import AboutMyPond from "@/components/widgets/AboutMyPond";
 import SwampConditions from "@/components/widgets/SwampConditions";
 import SwampTime from "@/components/widgets/SwampTime";
 import CurrentlyCroaking from "@/components/widgets/CurrentlyCroaking";
-import RarePepeLevel from "@/components/widgets/RarePepeLevel";
+import PepePortrait from "@/components/widgets/PepePortrait";
 import FliesCaught from "@/components/widgets/FliesCaught";
 import LilyPadMessages from "@/components/widgets/LilyPadMessages";
 import PostCard from "@/components/blog/PostCard";
@@ -70,8 +70,8 @@ export default function Home() {
                   borderLeft: "2px solid var(--swamp-green)",
                 }}
               >
+                <PepePortrait />
                 <CurrentlyCroaking />
-                <RarePepeLevel />
                 <FliesCaught />
                 <LilyPadMessages />
               </td>

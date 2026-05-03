@@ -1,3 +1,5 @@
+import Image from "next/image";
+import pepeFooter from "@/images/pepe-footer.png";
 import { flyCount } from "@/lib/swamp-data";
 
 export default function SiteFooter() {
@@ -13,6 +15,15 @@ export default function SiteFooter() {
         color: "var(--text-light)",
       }}
     >
+      <div style={{ marginBottom: "6px", lineHeight: 0 }}>
+        <Image
+          src={pepeFooter}
+          alt="Pepe"
+          width={64}
+          height={64}
+          style={{ imageRendering: "pixelated", display: "inline-block" }}
+        />
+      </div>
       <div style={{ marginBottom: "4px" }}>
         <span className="blink-slow" style={{ color: "var(--lily-green)" }}>[ </span>
         Flies Caught So Far:{" "}
