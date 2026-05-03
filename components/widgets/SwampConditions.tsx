@@ -1,20 +1,27 @@
 import { swampConditions } from "@/lib/swamp-data";
+import { MemphisCard, MDiamond } from "@/components/Memphis";
 
 export default function SwampConditions() {
   return (
-    <div className="widget-box">
-      <div className="widget-header">~* Swamp Conditions *~</div>
-      <div className="widget-body">
-        <div>Humidity: <strong>{swampConditions.humidity}%</strong></div>
-        <div>Fly Density: <strong>{swampConditions.flyDensity}</strong></div>
-        <div>Rain Chance: <strong>{swampConditions.rainChance}%</strong></div>
-        <div>Temp: <strong>{swampConditions.temperature}</strong></div>
-        <div>Visibility: <strong>{swampConditions.visibility}</strong></div>
-        <hr className="retro" />
-        <div style={{ fontSize: "12px", color: "var(--text-bright)" }}>
-          {swampConditions.lillyPadsFloating} lily pads currently afloat
-        </div>
+    <MemphisCard
+      header={<><MDiamond color="var(--m-coral)" size={10} /> Swamp Conditions</>}
+      headerBg="#1a3a1a"
+    >
+      <div style={{ marginBottom: 3 }}>
+        💧 Humidity: <b style={{ color: "var(--m-yellow)" }}>{swampConditions.humidity}%</b>
       </div>
-    </div>
+      <div style={{ marginBottom: 3 }}>
+        🌡 Temp: <b style={{ color: "var(--m-blue)" }}>{swampConditions.temperature}</b>
+      </div>
+      <div style={{ marginBottom: 3 }}>
+        🌧 Rain: <b style={{ color: "var(--m-blue)" }}>{swampConditions.rainChance}%</b>
+      </div>
+      <div style={{ marginBottom: 3 }}>
+        🪲 Flies: <b style={{ color: "var(--m-coral)" }}>{swampConditions.flyDensity}</b>
+      </div>
+      <div style={{ fontSize: 14, color: "var(--text-dim)", marginTop: 6 }}>
+        {swampConditions.lillyPadsFloating} lily pads afloat
+      </div>
+    </MemphisCard>
   );
 }

@@ -7,12 +7,22 @@
   --mud-brown: #5c3d1e;
   --teal: #1a4a3a;
   --text-light: #c8e6c9;
+  --text-dim: #7aad7a;
   --text-bright: #a5d6a7;
   --border-color: #4caf50;
   --widget-bg: #0d2210;
   --widget-header-bg: #1a4a1a;
   --link-color: #69f0ae;
   --link-visited: #b9f6ca;
+  --lime-bright: #69f0ae;
+
+  /* Memphis accent burst */
+  --m-yellow:  #f5e642;
+  --m-coral:   #ff5252;
+  --m-blue:    #40c4ff;
+  --m-magenta: #e040fb;
+  --m-orange:  #ff9100;
+  --m-ink:     #0a0a0a;
 }
 
 @theme inline {
@@ -56,29 +66,59 @@ a:hover {
   text-decoration: none;
 }
 
-/* Retro widget box */
+/* Retro widget box — Memphis style */
 .widget-box {
   background-color: var(--widget-bg);
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--m-ink);
+  box-shadow: 4px 4px 0 var(--m-ink);
   margin-bottom: 12px;
+  position: relative;
 }
 
 .widget-header {
   background-color: var(--widget-header-bg);
-  border-bottom: 2px solid var(--border-color);
-  padding: 4px 8px;
+  background-image: radial-gradient(circle, rgba(245,230,66,0.28) 2px, transparent 2px);
+  background-size: 12px 12px;
+  border-bottom: 2px solid var(--m-ink);
+  padding: 5px 10px;
   font-family: var(--font-pixel), monospace;
-  font-size: 8px;
-  color: var(--lily-green);
+  font-size: 7px;
+  color: var(--m-yellow);
   text-transform: uppercase;
   letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .widget-body {
-  padding: 8px;
+  padding: 10px;
   font-family: var(--font-vt323), monospace;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.4;
+}
+
+/* Memphis button */
+.m-btn {
+  font-family: var(--font-pixel), monospace;
+  font-size: 8px;
+  color: #0a0a0a;
+  background: var(--m-yellow);
+  border: 2px solid #0a0a0a;
+  padding: 4px 10px;
+  text-decoration: none;
+  box-shadow: 2px 2px 0 #0a0a0a;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Memphis pattern helpers */
+.pat-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0px, transparent 8px,
+    rgba(255,255,255,0.04) 8px, rgba(255,255,255,0.04) 16px
+  );
 }
 
 /* Blinking animation */

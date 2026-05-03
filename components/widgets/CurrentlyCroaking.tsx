@@ -1,24 +1,28 @@
 import { currentlyCroaking } from "@/lib/swamp-data";
+import { MemphisCard, MSquiggle } from "@/components/Memphis";
 
 export default function CurrentlyCroaking() {
   return (
-    <div className="widget-box">
-      <div className="widget-header">
-        <span className="blink">♪</span> Currently Croaking
+    <MemphisCard
+      header={
+        <>
+          <span className="blink" style={{ color: "var(--m-magenta)" }}>♪</span>
+          Currently Croaking
+        </>
+      }
+      headerBg="#1a0a2a"
+    >
+      <div style={{ color: "var(--lime-bright)", marginBottom: 3, fontWeight: "bold", fontSize: 18 }}>
+        {currentlyCroaking.track}
       </div>
-      <div className="widget-body">
-        <div style={{ color: "var(--lily-green)", marginBottom: "4px" }}>
-          {currentlyCroaking.track}
-        </div>
-        <div>by {currentlyCroaking.artist}</div>
-        <div style={{ fontSize: "12px", color: "var(--text-bright)" }}>
-          {currentlyCroaking.album}
-        </div>
-        <hr className="retro" />
-        <div style={{ fontSize: "12px" }}>
-          mood: <em>{currentlyCroaking.mood}</em>
-        </div>
+      <div style={{ fontSize: 17 }}>by {currentlyCroaking.artist}</div>
+      <div style={{ fontSize: 15, color: "var(--text-dim)", marginBottom: 6 }}>
+        {currentlyCroaking.album}
       </div>
-    </div>
+      <MSquiggle color="var(--swamp-green)" width={120} />
+      <div style={{ fontSize: 16, marginTop: 6 }}>
+        mood: <em style={{ color: "var(--m-magenta)" }}>{currentlyCroaking.mood}</em>
+      </div>
+    </MemphisCard>
   );
 }
