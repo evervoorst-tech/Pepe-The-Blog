@@ -1,4 +1,4 @@
-import Link from "next/link";
+import NavBar from "@/components/layout/NavBar";
 import {
   MTriangle,
   MCircle,
@@ -7,12 +7,6 @@ import {
   MStarburst,
   MTag,
 } from "@/components/Memphis";
-
-const NAV = [
-  { label: "HOME", href: "/" },
-  { label: "POSTS", href: "/blog" },
-  { label: "GUESTBOOK", href: "/guestbook" },
-];
 
 const SKILLS: [string, string][] = [
   ["TypeScript", "var(--m-blue)"],
@@ -69,25 +63,7 @@ export default function SiteHeader() {
         </div>
 
         {/* Nav */}
-        <div style={{ display: "flex", gap: 6, justifyContent: "center", marginBottom: 10 }}>
-          {NAV.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              style={{
-                fontFamily: "var(--font-press-start), monospace",
-                fontSize: 7,
-                padding: "4px 10px",
-                color: "var(--lime-bright)",
-                border: "2px solid var(--lime-bright)",
-                textDecoration: "none",
-                display: "inline-block",
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
+        <NavBar />
       </div>
 
       {/* Portfolio skills strip */}
