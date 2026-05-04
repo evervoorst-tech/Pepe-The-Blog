@@ -38,7 +38,15 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${bricolage.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}`,
+          }}
+        />
+      </head>
       <body>
         {children}
         {/* Film grain overlay */}

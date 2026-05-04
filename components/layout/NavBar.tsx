@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 const NAV = [
   { label: "HOME", href: "/" },
@@ -13,7 +14,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav style={{ background: "var(--ink)", display: "flex" }}>
+    <nav style={{ background: "var(--ink)", display: "flex", alignItems: "center" }}>
       {NAV.map((item) => {
         const isActive =
           item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
@@ -38,6 +39,8 @@ export default function NavBar() {
           </Link>
         );
       })}
+      <div style={{ flex: 1 }} />
+      <ThemeToggle />
     </nav>
   );
 }

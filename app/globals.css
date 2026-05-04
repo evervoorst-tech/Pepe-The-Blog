@@ -7,6 +7,17 @@
   --accent-yellow: #FFE600;
   --accent-red: #FF3333;
   --accent-blue: #0044FF;
+  --code-bg: #e8e3d8;
+}
+
+[data-theme="dark"] {
+  --bg: #111109;
+  --surface: #1d1d12;
+  --ink: #ede8dc;
+  --accent-yellow: #FFE600;
+  --accent-red: #FF3333;
+  --accent-blue: #4d7fff;
+  --code-bg: #2a2a1a;
 }
 
 @theme inline {
@@ -204,13 +215,13 @@ h3 {
 .prose code {
   font-family: var(--font-space-mono), monospace;
   font-size: 0.875em;
-  background: #e8e3d8;
+  background: var(--code-bg);
   border: 1.5px solid var(--ink);
   padding: 1px 5px;
 }
 
 .prose pre {
-  background: #e8e3d8;
+  background: var(--code-bg);
   border: 2px solid var(--ink);
   box-shadow: 3px 3px 0 var(--ink);
   padding: 14px 16px;
