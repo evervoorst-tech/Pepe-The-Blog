@@ -5,7 +5,7 @@ import SwampConditions from "@/components/widgets/SwampConditions";
 import SwampTime from "@/components/widgets/SwampTime";
 import CurrentlyCroaking from "@/components/widgets/CurrentlyCroaking";
 import PepePortrait from "@/components/widgets/PepePortrait";
-import RarePepeLevel from "@/components/widgets/RarePepeLevel";
+import Author from "@/components/widgets/Author";
 import LilyPadMessages from "@/components/widgets/LilyPadMessages";
 import PostCard from "@/components/blog/PostCard";
 import { getAllPosts } from "@/lib/posts";
@@ -104,7 +104,7 @@ export default function Home() {
               >
                 <PepePortrait />
                 <CurrentlyCroaking />
-                <RarePepeLevel />
+                <Author />
                 <LilyPadMessages />
               </td>
             </tr>

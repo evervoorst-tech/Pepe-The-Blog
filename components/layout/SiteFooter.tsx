@@ -1,5 +1,3 @@
-import Image from "next/image";
-import pepeFooter from "@/images/pepe-footer.png";
 import { flyCount } from "@/lib/swamp-data";
 import {
   MTriangle,
@@ -38,16 +36,6 @@ export default function SiteFooter() {
       />
 
       <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
-        <div style={{ marginBottom: 6, lineHeight: 0 }}>
-          <Image
-            src={pepeFooter}
-            alt="Pepe"
-            width={64}
-            height={64}
-            style={{ imageRendering: "pixelated", display: "inline-block" }}
-          />
-        </div>
-
         <div
           style={{
             marginBottom: 6,
