@@ -5,19 +5,22 @@ import SwampConditions from "@/components/widgets/SwampConditions";
 import SwampTime from "@/components/widgets/SwampTime";
 import CurrentlyCroaking from "@/components/widgets/CurrentlyCroaking";
 import PepePortrait from "@/components/widgets/PepePortrait";
-import Author from "@/components/widgets/Author";
+import RarePepeLevel from "@/components/widgets/Author";
 import LilyPadMessages from "@/components/widgets/LilyPadMessages";
 import PostCard from "@/components/blog/PostCard";
 import { getAllPosts } from "@/lib/posts";
+import { MDiamond } from "@/components/Memphis";
 
 export default function Home() {
   const posts = getAllPosts();
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div
+      style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
+    >
       <SiteHeader />
 
-      <div style={{ flex: 1, padding: "12px 10px" }}>
+      <div style={{ flex: 1, padding: "10px 8px" }}>
         <table className="site-table">
           <tbody>
             <tr>
@@ -27,7 +30,7 @@ export default function Home() {
                   width: 175,
                   verticalAlign: "top",
                   padding: "8px 8px 8px 0",
-                  borderRight: "3px solid var(--ink)",
+                  borderRight: "2px solid var(--swamp-green)",
                 }}
               >
                 <AboutMyPond />
@@ -42,73 +45,58 @@ export default function Home() {
                     display: "flex",
                     alignItems: "center",
                     gap: 10,
-                    borderBottom: "3px solid var(--ink)",
-                    paddingBottom: 10,
+                    borderBottom: "2px solid var(--swamp-green)",
+                    paddingBottom: 8,
                     marginBottom: 16,
                   }}
                 >
+                  <MDiamond color="var(--m-yellow)" size={14} />
                   <span
                     style={{
-                      fontFamily: "var(--font-bricolage), sans-serif",
-                      fontWeight: 800,
-                      fontSize: 20,
-                      color: "var(--ink)",
+                      fontFamily: "var(--font-press-start), monospace",
+                      fontSize: 8,
+                      color: "var(--lime-bright)",
                     }}
                   >
-                    Latest Dispatches
+                    ~~ Latest Dispatches from the Swamp ~~
                   </span>
+                  <MDiamond color="var(--m-yellow)" size={14} />
                 </div>
 
                 {posts.length === 0 ? (
                   <div className="widget-box">
-                    <div className="widget-body" style={{ fontStyle: "italic" }}>
+                    <div
+                      className="widget-body"
+                      style={{ fontStyle: "italic" }}
+                    >
                       no posts yet. the bog is quiet. too quiet.
                     </div>
                   </div>
                 ) : (
-                  posts.map((post, i) => <PostCard key={post.slug} post={post} index={i} />)
+                  posts.map((post, i) => (
+                    <PostCard key={post.slug} post={post} index={i} />
+                  ))
                 )}
 
                 {/* Pagination */}
                 <div
                   style={{
-                    border: "3px solid var(--ink)",
-                    background: "var(--surface)",
-                    boxShadow: "4px 4px 0 var(--ink)",
-                    padding: "10px 14px",
+                    border: "2px dashed var(--swamp-green)",
+                    padding: "8px 12px",
                     display: "flex",
                     justifyContent: "center",
                     gap: 16,
                     alignItems: "center",
-                    fontFamily: "var(--font-space-mono), monospace",
-                    fontSize: 12,
-                    fontWeight: 700,
-                    color: "var(--ink)",
+                    fontFamily: "var(--font-press-start), monospace",
+                    fontSize: 8,
+                    color: "var(--text-dim)",
                   }}
                 >
-                  <span>[ &lt; PREV ]</span>
-                  <span
-                    style={{
-                      color: "var(--ink)",
-                      background: "var(--accent-yellow)",
-                      padding: "0 8px",
-                      border: "2px solid var(--ink)",
-                    }}
-                  >
-                    ◆
-                  </span>
+                  <span>[ &lt; prev ]</span>
+                  <span style={{ color: "var(--m-yellow)" }}>◆</span>
                   <span>PAGE 1</span>
-                  <span
-                    style={{
-                      color: "var(--ink)",
-                      background: "var(--accent-yellow)",
-                      padding: "0 8px",
-                      border: "2px solid var(--ink)",
-                    }}
-                  >
-                    ◆
-                  </span>
-                  <span>[ NEXT &gt; ]</span>
+                  <span style={{ color: "var(--m-yellow)" }}>◆</span>
+                  <span>[ next &gt; ]</span>
                 </div>
               </td>
 
@@ -118,12 +106,12 @@ export default function Home() {
                   width: 175,
                   verticalAlign: "top",
                   padding: "8px 0 8px 8px",
-                  borderLeft: "3px solid var(--ink)",
+                  borderLeft: "2px solid var(--swamp-green)",
                 }}
               >
                 <PepePortrait />
                 <CurrentlyCroaking />
-                <Author />
+                <RarePepeLevel />
                 <LilyPadMessages />
               </td>
             </tr>

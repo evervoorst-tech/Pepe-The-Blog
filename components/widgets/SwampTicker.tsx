@@ -25,9 +25,10 @@ function generateTicker(count = 6) {
 }
 
 export default function SwampTicker() {
-  const [ticker, setTicker] = useState(() => generateTicker());
+  const [ticker, setTicker] = useState("");
 
   useEffect(() => {
+    setTicker(generateTicker());
     const id = setInterval(() => setTicker(generateTicker()), 30_000);
     return () => clearInterval(id);
   }, []);

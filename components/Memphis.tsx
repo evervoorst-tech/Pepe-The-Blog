@@ -172,6 +172,14 @@ export function NeoTag({
   );
 }
 
+export function MDiamond({ color = "currentColor", size = 12 }: { color?: string; size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 12 12" style={{ display: "inline-block", flexShrink: 0 }}>
+      <polygon points="6,0 12,6 6,12 0,6" fill={color} />
+    </svg>
+  );
+}
+
 // MemphisCard aliased to NeoWidget for any remaining references
 export function MemphisCard({
   header,

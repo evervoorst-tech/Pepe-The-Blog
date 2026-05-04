@@ -19,7 +19,7 @@ export default function PepePortrait() {
           alt="Pepe"
           width={120}
           height={140}
-          style={{ display: "block", maxWidth: "100%" }}
+          style={{ display: "block", maxWidth: "100%", height: "auto" }}
         />
       </div>
     </NeoWidget>
