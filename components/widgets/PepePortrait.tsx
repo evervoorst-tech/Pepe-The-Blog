@@ -7,8 +7,8 @@ export default function PepePortrait() {
     <NeoWidget header="Pepe" headerColor="var(--accent-red)" headerTextColor="#ffffff">
       <div
         style={{
-          border: "3px solid var(--ink)",
-          boxShadow: "3px 3px 0 var(--ink)",
+          border: "3px solid #0a0a0a",
+          boxShadow: "4px 4px 0 #0a0a0a",
           margin: "0 auto",
           display: "block",
           width: "fit-content",
@@ -16,9 +16,10 @@ export default function PepePortrait() {
       >
         <Image
           src={pepePortrait}
-          alt="Pepe"
+          alt="Portrait of Pepe the frog"
           width={120}
-          height={140}
+          height={180}
+          sizes="120px"
           style={{ display: "block", maxWidth: "100%", height: "auto" }}
         />
       </div>

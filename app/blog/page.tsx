@@ -6,8 +6,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "All Posts — Pepe's Blog",
-  description: "Every dispatch from the swamp, collected in one place.",
+  title: "All Posts :: Pepe's Blog",
+  description: "All dispatches from the swamp.",
 };
 
 export default function BlogIndexPage() {

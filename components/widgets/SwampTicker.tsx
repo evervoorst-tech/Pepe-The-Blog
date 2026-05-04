@@ -32,7 +32,7 @@ const Separator = () => (
     src={pepeFavicon.src}
     alt=""
     width={20}
-    height={28}
+    height={20}
     style={{ margin: "0 12px", flexShrink: 0 }}
   />
 );
