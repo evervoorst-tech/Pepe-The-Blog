@@ -6,23 +6,45 @@ interface PostContentProps {
 
 export default function PostContent({ post }: PostContentProps) {
   return (
-    <article className="widget-box">
-      <div className="widget-header">{post.date}</div>
-      <div className="widget-body">
-        <h1 style={{ marginBottom: "12px", color: "var(--lily-green)" }}>{post.title}</h1>
-        <hr className="retro" />
-        {/* TODO: render markdown — replace with proper parser when added */}
-        <div
+    <article
+      style={{
+        backgroundColor: "var(--surface)",
+        border: "3px solid var(--ink)",
+        boxShadow: "6px 6px 0 var(--ink)",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "var(--accent-yellow)",
+          borderBottom: "3px solid var(--ink)",
+          padding: "8px 16px",
+          fontFamily: "var(--font-space-mono), monospace",
+          fontSize: 11,
+          fontWeight: 700,
+          textTransform: "uppercase",
+          letterSpacing: 1,
+          color: "var(--ink)",
+        }}
+      >
+        {post.date}
+      </div>
+      <div style={{ padding: "20px" }}>
+        <h1
           style={{
-            fontFamily: "var(--font-vt323), monospace",
-            fontSize: "18px",
-            lineHeight: "1.6",
-            whiteSpace: "pre-wrap",
-            marginTop: "8px",
+            fontFamily: "var(--font-bricolage), sans-serif",
+            fontWeight: 800,
+            marginBottom: 16,
+            color: "var(--ink)",
           }}
         >
-          {post.content}
-        </div>
+          {post.title}
+        </h1>
+        <hr className="retro" />
+        <div
+          className="prose"
+          style={{ marginTop: 12 }}
+          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+        />
       </div>
     </article>
   );

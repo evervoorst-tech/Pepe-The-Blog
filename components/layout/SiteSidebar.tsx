@@ -12,7 +12,7 @@ export default function SiteSidebar({ children, width = 160 }: SiteSidebarProps)
         width,
         verticalAlign: "top",
         padding: "4px",
-        borderRight: "2px solid var(--swamp-green)",
+        borderRight: "3px solid var(--ink)",
       }}
     >
       {children}

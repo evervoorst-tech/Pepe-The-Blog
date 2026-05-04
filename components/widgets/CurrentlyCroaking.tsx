@@ -1,28 +1,26 @@
 import { currentlyCroaking } from "@/lib/swamp-data";
-import { MemphisCard, MSquiggle } from "@/components/Memphis";
+import { NeoWidget } from "@/components/Memphis";
 
 export default function CurrentlyCroaking() {
   return (
-    <MemphisCard
-      header={
-        <>
-          <span className="blink" style={{ color: "var(--m-magenta)" }}>♪</span>
-          Currently Croaking
-        </>
-      }
-      headerBg="#1a0a2a"
-    >
-      <div style={{ color: "var(--lime-bright)", marginBottom: 3, fontWeight: "bold", fontSize: 18 }}>
+    <NeoWidget header="♪ Currently Croaking" headerColor="var(--accent-yellow)">
+      <div style={{ fontWeight: 700, marginBottom: 4, fontSize: 15 }}>
         {currentlyCroaking.track}
       </div>
-      <div style={{ fontSize: 17 }}>by {currentlyCroaking.artist}</div>
-      <div style={{ fontSize: 15, color: "var(--text-dim)", marginBottom: 6 }}>
+      <div style={{ marginBottom: 2 }}>by {currentlyCroaking.artist}</div>
+      <div
+        style={{
+          fontSize: 12,
+          opacity: 0.6,
+          marginBottom: 8,
+          fontFamily: "var(--font-space-mono), monospace",
+        }}
+      >
         {currentlyCroaking.album}
       </div>
-      <MSquiggle color="var(--swamp-green)" width={120} />
-      <div style={{ fontSize: 16, marginTop: 6 }}>
-        mood: <em style={{ color: "var(--m-magenta)" }}>{currentlyCroaking.mood}</em>
+      <div style={{ fontSize: 13 }}>
+        mood: <em style={{ fontWeight: 600 }}>{currentlyCroaking.mood}</em>
       </div>
-    </MemphisCard>
+    </NeoWidget>
   );
 }

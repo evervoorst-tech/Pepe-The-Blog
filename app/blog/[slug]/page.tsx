@@ -15,17 +15,29 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) notFound();
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <SiteHeader />
-      <div style={{ flex: 1, padding: "12px", maxWidth: 800, margin: "0 auto", width: "100%" }}>
-        <div style={{ marginBottom: "8px" }}>
-          <Link href="/" style={{ fontSize: "12px" }}>
-            &laquo; back to the swamp
+      <div style={{ flex: 1, padding: "20px", maxWidth: 800, margin: "0 auto", width: "100%" }}>
+        <div style={{ marginBottom: "16px" }}>
+          <Link
+            href="/"
+            style={{
+              fontFamily: "var(--font-space-mono), monospace",
+              fontSize: 12,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: 1,
+              textDecoration: "none",
+              color: "var(--ink)",
+              borderBottom: "2px solid var(--ink)",
+            }}
+          >
+            ← Back to the Swamp
           </Link>
         </div>
         <PostContent post={post} />

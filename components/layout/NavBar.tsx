@@ -13,23 +13,24 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <div style={{ display: "flex", gap: 6, justifyContent: "center", marginBottom: 10 }}>
+    <nav style={{ background: "var(--ink)", display: "flex" }}>
       {NAV.map((item) => {
-        const isActive = pathname === item.href;
+        const isActive =
+          item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
         return (
           <Link
             key={item.label}
             href={item.href}
             style={{
-              fontFamily: "var(--font-press-start), monospace",
-              fontSize: 7,
-              padding: "4px 10px",
-              background: isActive ? "var(--m-yellow)" : "transparent",
-              color: isActive ? "#0a0a0a" : "var(--lime-bright)",
-              border: "2px solid",
-              borderColor: isActive ? "#0a0a0a" : "var(--lime-bright)",
-              boxShadow: isActive ? "2px 2px 0 #0a0a0a" : "none",
+              fontFamily: "var(--font-space-mono), monospace",
+              fontSize: 12,
+              fontWeight: 700,
+              padding: "10px 20px",
+              background: isActive ? "var(--accent-yellow)" : "transparent",
+              color: isActive ? "var(--ink)" : "#ffffff",
               textDecoration: "none",
+              textTransform: "uppercase" as const,
+              letterSpacing: 1,
               display: "inline-block",
             }}
           >
@@ -37,6 +38,6 @@ export default function NavBar() {
           </Link>
         );
       })}
-    </div>
+    </nav>
   );
 }

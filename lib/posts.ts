@@ -1,5 +1,7 @@
 import fs from "fs";
 import path from "path";
+import { remark } from "remark";
+import remarkHtml from "remark-html";
 
 const POSTS_DIR = path.join(process.cwd(), "content", "posts");
 
@@ -11,7 +13,7 @@ export interface PostMeta {
 }
 
 export interface Post extends PostMeta {
-  content: string;
+  contentHtml: string;
 }
 
 function parseFrontmatter(raw: string): { meta: Record<string, string>; content: string } {
@@ -50,7 +52,7 @@ export function getAllPosts(): PostMeta[] {
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getPostBySlug(slug: string): Post | null {
+export async function getPostBySlug(slug: string): Promise<Post | null> {
   if (!fs.existsSync(POSTS_DIR)) return null;
 
   const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md"));
@@ -59,12 +61,13 @@ export function getPostBySlug(slug: string): Post | null {
     const { meta, content } = parseFrontmatter(raw);
     const fileSlug = meta.slug || filename.replace(/\.md$/, "");
     if (fileSlug === slug) {
+      const processed = await remark().use(remarkHtml).process(content);
       return {
         slug: fileSlug,
         title: meta.title || fileSlug,
         date: meta.date || "",
         excerpt: meta.excerpt || "",
-        content,
+        contentHtml: processed.toString(),
       };
     }
   }

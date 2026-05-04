@@ -1,6 +1,7 @@
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 import Link from "next/link";
+import { NeoWidget } from "@/components/Memphis";
 
 export const metadata = {
   title: "Lily Pad Messages :: Pepe's Blog",
@@ -10,7 +11,8 @@ export const metadata = {
 const MESSAGES = [
   {
     author: "BogWatcher99",
-    message: "great blog!! ribbit!! i have been following the swamp for 3 years and it only gets better",
+    message:
+      "great blog!! ribbit!! i have been following the swamp for 3 years and it only gets better",
     date: "2026-05-01",
     location: "Northeast Bog",
   },
@@ -22,10 +24,17 @@ const MESSAGES = [
   },
   {
     author: "FrogFan2000",
-    message: "rare pepe spotted!! 🐸 blessed to have found this website via a old geocities link",
+    message:
+      "rare pepe spotted!! 🐸 blessed to have found this website via a old geocities link",
     date: "2026-04-29",
     location: "A Nearby Puddle",
   },
+];
+
+const ACCENT_CYCLE: [string, string][] = [
+  ["var(--accent-yellow)", "var(--ink)"],
+  ["var(--accent-blue)", "#ffffff"],
+  ["var(--accent-red)", "#ffffff"],
 ];
 
 export default function GuestbookPage() {
@@ -33,68 +42,90 @@ export default function GuestbookPage() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <SiteHeader />
 
-      <div style={{ flex: 1, padding: "12px", maxWidth: 700, margin: "0 auto", width: "100%" }}>
-        <div style={{ marginBottom: "8px" }}>
-          <Link href="/" style={{ fontSize: "12px" }}>
-            &laquo; back to the swamp
+      <div style={{ flex: 1, padding: "20px", maxWidth: 700, margin: "0 auto", width: "100%" }}>
+        <div style={{ marginBottom: "16px" }}>
+          <Link
+            href="/"
+            style={{
+              fontFamily: "var(--font-space-mono), monospace",
+              fontSize: 12,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: 1,
+              textDecoration: "none",
+              color: "var(--ink)",
+              borderBottom: "2px solid var(--ink)",
+            }}
+          >
+            ← Back to the Swamp
           </Link>
         </div>
 
-        <div className="widget-box" style={{ marginBottom: "16px" }}>
-          <div className="widget-header">~~ Lily Pad Messages ~~</div>
-          <div className="widget-body">
-            <div style={{ fontSize: "15px", marginBottom: "8px" }}>
-              welcome to my guestbook. leave your mark on the lily pad. be nice or the frogs will judge you.
-            </div>
+        <NeoWidget
+          header="Lily Pad Messages"
+          headerColor="var(--accent-yellow)"
+          style={{ marginBottom: 20 }}
+        >
+          <div style={{ marginBottom: 12 }}>
+            welcome to my guestbook. leave your mark on the lily pad. be nice or the frogs will
+            judge you.
+          </div>
 
-            {/* Placeholder form — no backend yet */}
+          <div
+            style={{
+              border: "3px solid var(--ink)",
+              padding: "14px",
+              background: "var(--bg)",
+              boxShadow: "4px 4px 0 var(--ink)",
+            }}
+          >
             <div
               style={{
-                border: "2px solid var(--swamp-green)",
-                padding: "8px",
-                marginTop: "8px",
-                background: "var(--swamp-bg)",
+                fontFamily: "var(--font-space-mono), monospace",
+                fontSize: 12,
+                fontWeight: 700,
+                color: "var(--ink)",
+                textTransform: "uppercase",
+                letterSpacing: 1,
+                marginBottom: 8,
               }}
             >
-              <div
-                style={{
-                  fontFamily: "var(--font-press-start), monospace",
-                  fontSize: "8px",
-                  color: "var(--lily-green)",
-                  marginBottom: "6px",
-                }}
-              >
-                [ SIGN THE PAD ]
-              </div>
-              <div style={{ fontSize: "13px", color: "#666", fontStyle: "italic" }}>
-                guestbook form coming soon... the swamp is under construction.
-              </div>
-              <div className="blink-slow" style={{ fontSize: "13px", color: "var(--lily-green)", marginTop: "4px" }}>
-                🚧 under construction 🚧
-              </div>
+              [ SIGN THE PAD ]
             </div>
+            <div
+              style={{ fontSize: 14, color: "var(--ink)", opacity: 0.6, fontStyle: "italic" }}
+            >
+              guestbook form coming soon... the swamp is under construction.
+            </div>
+            <div style={{ fontSize: 13, marginTop: 6 }}>🚧 under construction 🚧</div>
           </div>
-        </div>
+        </NeoWidget>
 
         <div
           style={{
-            fontFamily: "var(--font-press-start), monospace",
-            fontSize: "8px",
-            color: "var(--lily-green)",
-            marginBottom: "8px",
+            fontFamily: "var(--font-bricolage), sans-serif",
+            fontWeight: 800,
+            fontSize: 20,
+            color: "var(--ink)",
+            marginBottom: 12,
           }}
         >
-          recent messages:
+          Recent Messages
         </div>
 
-        {MESSAGES.map((msg, i) => (
-          <div className="widget-box" key={i}>
-            <div className="widget-header">
-              {msg.author} &mdash; {msg.date} &mdash; {msg.location}
-            </div>
-            <div className="widget-body">{msg.message}</div>
-          </div>
-        ))}
+        {MESSAGES.map((msg, i) => {
+          const [headerColor, headerTextColor] = ACCENT_CYCLE[i % ACCENT_CYCLE.length];
+          return (
+            <NeoWidget
+              key={i}
+              header={`${msg.author} — ${msg.date} — ${msg.location}`}
+              headerColor={headerColor}
+              headerTextColor={headerTextColor}
+            >
+              {msg.message}
+            </NeoWidget>
+          );
+        })}
       </div>
 
       <SiteFooter />

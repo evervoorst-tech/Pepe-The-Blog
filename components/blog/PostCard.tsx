@@ -1,8 +1,10 @@
 import { PostMeta } from "@/lib/posts";
 import Link from "next/link";
-import { MSquiggle, MDots } from "@/components/Memphis";
+import { NeoCard } from "@/components/Memphis";
 
-const ACCENTS = ["var(--m-yellow)", "var(--m-blue)", "var(--m-coral)"];
+const ACCENT_BG = ["var(--accent-yellow)", "var(--accent-blue)", "var(--accent-red)"];
+const HEADER_TEXT = ["var(--ink)", "#ffffff", "#ffffff"];
+const BTN_TEXT = ["var(--ink)", "#ffffff", "#ffffff"];
 
 interface PostCardProps {
   post: PostMeta;
@@ -10,109 +12,66 @@ interface PostCardProps {
 }
 
 export default function PostCard({ post, index = 0 }: PostCardProps) {
-  const accent = ACCENTS[index % ACCENTS.length];
+  const accentBg = ACCENT_BG[index % ACCENT_BG.length];
+  const headerText = HEADER_TEXT[index % HEADER_TEXT.length];
+  const btnText = BTN_TEXT[index % BTN_TEXT.length];
 
   return (
-    <div
-      style={{
-        background: "var(--widget-bg)",
-        border: "2px solid #0a0a0a",
-        boxShadow: `5px 5px 0 ${accent}`,
-        marginBottom: 20,
-        position: "relative",
-        overflow: "hidden",
-      }}
+    <NeoCard
+      header={`${post.date} — NEW POST`}
+      headerColor={accentBg}
+      headerTextColor={headerText}
+      className="neo-card"
     >
-      {/* Memphis corner triangle */}
-      <div
+      <h2
         style={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: 0,
-          height: 0,
-          borderStyle: "solid",
-          borderWidth: "0 32px 32px 0",
-          borderColor: `transparent ${accent} transparent transparent`,
-          opacity: 0.8,
-        }}
-      />
-
-      {/* Header bar with diagonal stripe */}
-      <div
-        className="pat-stripes"
-        style={{
-          background: "var(--swamp-green)",
-          borderBottom: "2px solid #0a0a0a",
-          padding: "5px 10px",
-          display: "flex",
-          alignItems: "center",
-          gap: 8,
+          fontFamily: "var(--font-bricolage), sans-serif",
+          fontWeight: 800,
+          fontSize: 20,
+          color: "var(--ink)",
+          marginBottom: 10,
+          lineHeight: 1.3,
         }}
       >
-        <span
-          style={{
-            fontFamily: "var(--font-press-start), monospace",
-            fontSize: 7,
-            color: accent,
-            textTransform: "uppercase",
-          }}
-        >
-          {post.date} — NEW POST
-        </span>
-        <span className="blink" style={{ color: "var(--m-yellow)", fontSize: 14 }}>●</span>
+        <Link href={`/blog/${post.slug}`} style={{ color: "inherit", textDecoration: "none" }}>
+          {post.title}
+        </Link>
+      </h2>
+
+      <div
+        style={{
+          fontFamily: "var(--font-space-grotesk), sans-serif",
+          fontSize: 15,
+          color: "var(--ink)",
+          marginBottom: 14,
+          lineHeight: 1.5,
+          opacity: 0.75,
+        }}
+      >
+        {post.excerpt}
       </div>
 
-      <div style={{ padding: "12px 14px 14px" }}>
-        <h2
-          style={{
-            fontFamily: "var(--font-press-start), monospace",
-            fontSize: 11,
-            color: "var(--lime-bright)",
-            marginBottom: 10,
-            lineHeight: 1.6,
-            textShadow: "1px 1px 0 #0a0a0a",
-          }}
-        >
-          <Link href={`/blog/${post.slug}`} style={{ color: "inherit", textDecoration: "none" }}>
-            {post.title}
-          </Link>
-        </h2>
+      <hr style={{ border: "none", borderTop: "2px solid var(--ink)", margin: "0 0 14px" }} />
 
-        <div
-          style={{
-            fontFamily: "var(--font-vt323), monospace",
-            fontSize: 19,
-            color: "var(--text-light)",
-            marginBottom: 10,
-            lineHeight: 1.4,
-          }}
-        >
-          {post.excerpt}
-        </div>
-
-        <MSquiggle color="var(--swamp-green)" width={200} />
-
-        <div style={{ marginTop: 10, display: "flex", alignItems: "center", gap: 8 }}>
-          <Link
-            href={`/blog/${post.slug}`}
-            style={{
-              fontFamily: "var(--font-press-start), monospace",
-              fontSize: 8,
-              color: "#0a0a0a",
-              background: accent,
-              border: "2px solid #0a0a0a",
-              padding: "4px 10px",
-              textDecoration: "none",
-              boxShadow: "2px 2px 0 #0a0a0a",
-              display: "inline-block",
-            }}
-          >
-            [ read more ]
-          </Link>
-          <MDots color={accent} cols={4} rows={1} gap={8} />
-        </div>
-      </div>
-    </div>
+      <Link
+        href={`/blog/${post.slug}`}
+        style={{
+          fontFamily: "var(--font-space-mono), monospace",
+          fontSize: 12,
+          fontWeight: 700,
+          color: btnText,
+          background: accentBg,
+          border: "3px solid var(--ink)",
+          padding: "6px 14px",
+          textDecoration: "none",
+          boxShadow: "4px 4px 0 var(--ink)",
+          display: "inline-block",
+          textTransform: "uppercase",
+          letterSpacing: 1,
+        }}
+      >
+        Read More →
+      </Link>
+    </NeoCard>
   );
 }

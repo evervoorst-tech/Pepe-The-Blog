@@ -1,27 +1,37 @@
 import { swampConditions } from "@/lib/swamp-data";
-import { MemphisCard, MDiamond } from "@/components/Memphis";
+import { NeoWidget } from "@/components/Memphis";
 
 export default function SwampConditions() {
   return (
-    <MemphisCard
-      header={<><MDiamond color="var(--m-coral)" size={10} /> Swamp Conditions</>}
-      headerBg="#1a3a1a"
+    <NeoWidget
+      header="Swamp Conditions"
+      headerColor="var(--accent-blue)"
+      headerTextColor="#ffffff"
     >
-      <div style={{ marginBottom: 3 }}>
-        💧 Humidity: <b style={{ color: "var(--m-yellow)" }}>{swampConditions.humidity}%</b>
+      <div style={{ marginBottom: 4 }}>
+        💧 Humidity:{" "}
+        <b style={{ color: "var(--accent-blue)" }}>{swampConditions.humidity}%</b>
       </div>
-      <div style={{ marginBottom: 3 }}>
-        🌡 Temp: <b style={{ color: "var(--m-blue)" }}>{swampConditions.temperature}</b>
+      <div style={{ marginBottom: 4 }}>
+        🌡 Temp: <b>{swampConditions.temperature}</b>
       </div>
-      <div style={{ marginBottom: 3 }}>
-        🌧 Rain: <b style={{ color: "var(--m-blue)" }}>{swampConditions.rainChance}%</b>
+      <div style={{ marginBottom: 4 }}>
+        🌧 Rain: <b>{swampConditions.rainChance}%</b>
       </div>
-      <div style={{ marginBottom: 3 }}>
-        🪲 Flies: <b style={{ color: "var(--m-coral)" }}>{swampConditions.flyDensity}</b>
+      <div style={{ marginBottom: 4 }}>
+        🪲 Flies:{" "}
+        <b style={{ color: "var(--accent-red)" }}>{swampConditions.flyDensity}</b>
       </div>
-      <div style={{ fontSize: 14, color: "var(--text-dim)", marginTop: 6 }}>
+      <div
+        style={{
+          fontSize: 12,
+          opacity: 0.6,
+          marginTop: 6,
+          fontFamily: "var(--font-space-mono), monospace",
+        }}
+      >
         {swampConditions.lillyPadsFloating} lily pads afloat
       </div>
-    </MemphisCard>
+    </NeoWidget>
   );
 }

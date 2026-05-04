@@ -1,4 +1,4 @@
-import { MemphisCard, MDots } from "@/components/Memphis";
+import { NeoWidget, NeoButton } from "@/components/Memphis";
 
 const RECENT_MESSAGES = [
   { author: "BogWatcher99", message: "great blog!! ribbit!!", date: "2026-05-01" },
@@ -7,45 +7,36 @@ const RECENT_MESSAGES = [
 
 export default function LilyPadMessages() {
   return (
-    <MemphisCard
-      header={
-        <>
-          <MDots color="var(--m-orange)" cols={3} rows={1} gap={8} />
-          Lily Pad Messages
-        </>
-      }
-      headerBg="#1a2a0a"
+    <NeoWidget
+      header="Lily Pad Messages"
+      headerColor="var(--accent-blue)"
+      headerTextColor="#ffffff"
     >
       {RECENT_MESSAGES.map((msg, i) => (
         <div
           key={i}
           style={{
-            marginBottom: 6,
-            paddingBottom: 6,
-            borderBottom: i < RECENT_MESSAGES.length - 1 ? "1px dashed var(--swamp-green)" : "none",
+            marginBottom: 8,
+            paddingBottom: 8,
+            borderBottom:
+              i < RECENT_MESSAGES.length - 1 ? "2px solid var(--ink)" : "none",
           }}
         >
-          <div style={{ color: "var(--lime-bright)", fontSize: 16 }}>&ldquo;{msg.message}&rdquo;</div>
-          <div style={{ fontSize: 14, color: "var(--text-dim)" }}>— {msg.author}</div>
+          <div style={{ marginBottom: 2 }}>&ldquo;{msg.message}&rdquo;</div>
+          <div
+            style={{
+              fontSize: 11,
+              opacity: 0.6,
+              fontFamily: "var(--font-space-mono), monospace",
+            }}
+          >
+            — {msg.author}
+          </div>
         </div>
       ))}
-      <a
-        href="/guestbook"
-        style={{
-          fontFamily: "var(--font-press-start), monospace",
-          fontSize: 7,
-          color: "#0a0a0a",
-          background: "var(--m-yellow)",
-          border: "2px solid #0a0a0a",
-          padding: "3px 8px",
-          textDecoration: "none",
-          boxShadow: "2px 2px 0 #0a0a0a",
-          display: "inline-block",
-          marginTop: 4,
-        }}
-      >
-        + SIGN
-      </a>
-    </MemphisCard>
+      <NeoButton href="/guestbook" style={{ marginTop: 4 }}>
+        + Sign
+      </NeoButton>
+    </NeoWidget>
   );
 }

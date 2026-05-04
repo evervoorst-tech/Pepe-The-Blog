@@ -1,26 +1,33 @@
 import { flyCount } from "@/lib/swamp-data";
+import { NeoWidget } from "@/components/Memphis";
 
 export default function FliesCaught() {
   return (
-    <div className="widget-box">
-      <div className="widget-header">Flies Caught So Far</div>
-      <div className="widget-body" style={{ textAlign: "center" }}>
+    <NeoWidget header="Flies Caught" headerColor="var(--accent-yellow)">
+      <div style={{ textAlign: "center" }}>
         <div
           style={{
-            fontSize: "24px",
-            color: "var(--lily-green)",
-            fontFamily: "var(--font-press-start), monospace",
+            fontFamily: "var(--font-space-mono), monospace",
+            fontWeight: 700,
+            fontSize: 26,
+            color: "var(--ink)",
           }}
         >
           {flyCount.toLocaleString()}
         </div>
-        <div style={{ fontSize: "12px", marginTop: "4px", color: "var(--text-bright)" }}>
+        <div style={{ fontSize: 12, marginTop: 4, opacity: 0.6 }}>
           visitors to the swamp
         </div>
-        <div style={{ fontSize: "11px", color: "#888" }}>
+        <div
+          style={{
+            fontSize: 11,
+            opacity: 0.4,
+            fontFamily: "var(--font-space-mono), monospace",
+          }}
+        >
           (since the bog opened)
         </div>
       </div>
-    </div>
+    </NeoWidget>
   );
 }

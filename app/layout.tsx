@@ -1,17 +1,24 @@
 import type { Metadata } from "next";
-import { Press_Start_2P, VT323 } from "next/font/google";
+import { Bricolage_Grotesque, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const pressStart2P = Press_Start_2P({
-  weight: "400",
-  variable: "--font-press-start",
+const bricolage = Bricolage_Grotesque({
+  weight: ["400", "700", "800"],
+  variable: "--font-bricolage",
   subsets: ["latin"],
   display: "swap",
 });
 
-const vt323 = VT323({
-  weight: "400",
-  variable: "--font-vt323",
+const spaceGrotesk = Space_Grotesk({
+  weight: ["400", "500", "700"],
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -30,9 +37,35 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${pressStart2P.variable} ${vt323.variable}`}
+      className={`${bricolage.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Film grain overlay */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "fixed",
+            inset: 0,
+            pointerEvents: "none",
+            zIndex: 9999,
+            opacity: 0.04,
+          }}
+        >
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <filter id="grain">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.65"
+                numOctaves="3"
+                stitchTiles="stitch"
+              />
+              <feColorMatrix type="saturate" values="0" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#grain)" />
+          </svg>
+        </div>
+      </body>
     </html>
   );
 }

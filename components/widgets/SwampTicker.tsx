@@ -21,7 +21,7 @@ function generateTicker(count = 6) {
   return [...SWAMP_SEGMENTS]
     .sort(() => Math.random() - 0.5)
     .slice(0, count)
-    .join(" *** ");
+    .join(" ★★★ ");
 }
 
 export default function SwampTicker() {
@@ -35,9 +35,9 @@ export default function SwampTicker() {
   return (
     <div
       style={{
-        background: "#0a0a0a",
-        borderBottom: "2px solid var(--lily-green)",
-        padding: "3px 0",
+        background: "var(--accent-yellow)",
+        borderTop: "3px solid var(--ink)",
+        padding: "4px 0",
         overflow: "hidden",
         whiteSpace: "nowrap",
       }}
@@ -45,12 +45,15 @@ export default function SwampTicker() {
       <marquee
         scrollamount={3}
         style={{
-          fontFamily: "var(--font-vt323), monospace",
-          fontSize: 16,
-          color: "var(--lime-bright)",
+          fontFamily: "var(--font-space-mono), monospace",
+          fontSize: 12,
+          fontWeight: 700,
+          color: "var(--ink)",
+          textTransform: "uppercase",
+          letterSpacing: 1,
         }}
       >
-        *** SWAMP NEWS *** {ticker} ***
+        ★ SWAMP NEWS ★ {ticker} ★
       </marquee>
     </div>
   );

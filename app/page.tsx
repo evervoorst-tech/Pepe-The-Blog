@@ -9,7 +9,6 @@ import Author from "@/components/widgets/Author";
 import LilyPadMessages from "@/components/widgets/LilyPadMessages";
 import PostCard from "@/components/blog/PostCard";
 import { getAllPosts } from "@/lib/posts";
-import { MDiamond } from "@/components/Memphis";
 
 export default function Home() {
   const posts = getAllPosts();
@@ -18,7 +17,7 @@ export default function Home() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <SiteHeader />
 
-      <div style={{ flex: 1, padding: "10px 8px" }}>
+      <div style={{ flex: 1, padding: "12px 10px" }}>
         <table className="site-table">
           <tbody>
             <tr>
@@ -28,7 +27,7 @@ export default function Home() {
                   width: 175,
                   verticalAlign: "top",
                   padding: "8px 8px 8px 0",
-                  borderRight: "2px solid var(--swamp-green)",
+                  borderRight: "3px solid var(--ink)",
                 }}
               >
                 <AboutMyPond />
@@ -43,22 +42,21 @@ export default function Home() {
                     display: "flex",
                     alignItems: "center",
                     gap: 10,
-                    borderBottom: "2px solid var(--swamp-green)",
-                    paddingBottom: 8,
+                    borderBottom: "3px solid var(--ink)",
+                    paddingBottom: 10,
                     marginBottom: 16,
                   }}
                 >
-                  <MDiamond color="var(--m-yellow)" size={14} />
                   <span
                     style={{
-                      fontFamily: "var(--font-press-start), monospace",
-                      fontSize: 8,
-                      color: "var(--lime-bright)",
+                      fontFamily: "var(--font-bricolage), sans-serif",
+                      fontWeight: 800,
+                      fontSize: 20,
+                      color: "var(--ink)",
                     }}
                   >
-                    ~~ Latest Dispatches from the Swamp ~~
+                    Latest Dispatches
                   </span>
-                  <MDiamond color="var(--m-yellow)" size={14} />
                 </div>
 
                 {posts.length === 0 ? (
@@ -74,22 +72,43 @@ export default function Home() {
                 {/* Pagination */}
                 <div
                   style={{
-                    border: "2px dashed var(--swamp-green)",
-                    padding: "8px 12px",
+                    border: "3px solid var(--ink)",
+                    background: "var(--surface)",
+                    boxShadow: "4px 4px 0 var(--ink)",
+                    padding: "10px 14px",
                     display: "flex",
                     justifyContent: "center",
                     gap: 16,
                     alignItems: "center",
-                    fontFamily: "var(--font-press-start), monospace",
-                    fontSize: 8,
-                    color: "var(--text-dim)",
+                    fontFamily: "var(--font-space-mono), monospace",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    color: "var(--ink)",
                   }}
                 >
-                  <span>[ &lt; prev ]</span>
-                  <span style={{ color: "var(--m-yellow)" }}>◆</span>
+                  <span>[ &lt; PREV ]</span>
+                  <span
+                    style={{
+                      color: "var(--ink)",
+                      background: "var(--accent-yellow)",
+                      padding: "0 8px",
+                      border: "2px solid var(--ink)",
+                    }}
+                  >
+                    ◆
+                  </span>
                   <span>PAGE 1</span>
-                  <span style={{ color: "var(--m-yellow)" }}>◆</span>
-                  <span>[ next &gt; ]</span>
+                  <span
+                    style={{
+                      color: "var(--ink)",
+                      background: "var(--accent-yellow)",
+                      padding: "0 8px",
+                      border: "2px solid var(--ink)",
+                    }}
+                  >
+                    ◆
+                  </span>
+                  <span>[ NEXT &gt; ]</span>
                 </div>
               </td>
 
@@ -99,7 +118,7 @@ export default function Home() {
                   width: 175,
                   verticalAlign: "top",
                   padding: "8px 0 8px 8px",
-                  borderLeft: "2px solid var(--swamp-green)",
+                  borderLeft: "3px solid var(--ink)",
                 }}
               >
                 <PepePortrait />
