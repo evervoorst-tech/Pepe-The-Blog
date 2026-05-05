@@ -3,17 +3,20 @@
 import { useEffect, useState } from "react";
 import { NeoWidget } from "@/components/Memphis";
 
-function pad(n: number) {
-  return String(n).padStart(2, "0");
-}
 
 export default function SwampTime() {
   const [time, setTime] = useState<string | null>(null);
 
   useEffect(() => {
+    const fmt = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
     function tick() {
-      const now = new Date();
-      setTime(`${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`);
+      setTime(fmt.format(new Date()));
     }
     tick();
     const id = setInterval(tick, 1000);
@@ -48,7 +51,7 @@ export default function SwampTime() {
           fontFamily: "var(--font-space-mono), monospace",
         }}
       >
-        bog standard time
+        Eastern Time (ET)
       </div>
     </NeoWidget>
   );
