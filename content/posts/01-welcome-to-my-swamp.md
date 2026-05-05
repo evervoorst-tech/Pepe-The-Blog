@@ -3,6 +3,7 @@ title: "Welcome to My Swamp"
 slug: "welcome-to-my-swamp"
 date: "2026-05-02"
 excerpt: "i made a blog. the humidity is 94%. it is a good day."
+tag: "LIFE"
 ---
 
 hello. i am pepe. i live in a swamp.

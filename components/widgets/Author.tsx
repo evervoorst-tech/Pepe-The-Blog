@@ -1,18 +1,49 @@
 import Image from "next/image";
 import pepeFooter from "@/images/pepe-footer.png";
-import { NeoWidget } from "@/components/Memphis";
 
 export default function Author() {
   return (
-    <NeoWidget header="Author" headerColor="var(--accent-yellow)">
-      <div style={{ textAlign: "center" }}>
+    <div
+      className="neo-widget"
+      style={{
+        background: "var(--surface)",
+        border: "3px solid var(--ink)",
+        boxShadow: "5px 5px 0 var(--ink)",
+        marginBottom: 12,
+        position: "relative",
+      }}
+    >
+      <div
+        style={{
+          background: "var(--ink)",
+          borderBottom: "3px solid var(--ink)",
+          padding: "6px 12px",
+          fontFamily: "var(--font-space-mono), monospace",
+          fontSize: 11,
+          fontWeight: 700,
+          color: "var(--accent-yellow)",
+          textTransform: "uppercase",
+          letterSpacing: 1,
+        }}
+      >
+        Author
+      </div>
+      <div
+        style={{
+          padding: "14px 16px",
+          display: "flex",
+          gap: 12,
+          alignItems: "center",
+        }}
+      >
         <div
           style={{
-            marginBottom: 8,
+            width: 64,
+            height: 64,
+            flexShrink: 0,
+            border: "2px solid var(--ink)",
             lineHeight: 0,
-            display: "inline-block",
-            border: "3px solid #0a0a0a",
-            boxShadow: "4px 4px 0 #0a0a0a",
+            overflow: "hidden",
           }}
         >
           <Image
@@ -21,19 +52,44 @@ export default function Author() {
             width={64}
             height={64}
             sizes="64px"
-            style={{ display: "block" }}
+            style={{ display: "block", width: 64, height: 64, objectFit: "cover" }}
           />
         </div>
-        <div
-          style={{
-            fontFamily: "var(--font-space-mono), monospace",
-            fontSize: 12,
-            opacity: 0.6,
-          }}
-        >
-          Pepega Designs
+        <div>
+          <div
+            style={{
+              fontFamily: "var(--font-bricolage), sans-serif",
+              fontSize: 16,
+              fontWeight: 800,
+              color: "var(--ink)",
+            }}
+          >
+            Pepega Designs
+          </div>
+          <div
+            style={{
+              fontFamily: "var(--font-space-mono), monospace",
+              fontSize: 10,
+              color: "var(--ink)",
+              opacity: 0.6,
+              marginTop: 3,
+            }}
+          >
+            @evervoorst-tech
+          </div>
+          <div
+            style={{
+              fontFamily: "var(--font-space-mono), monospace",
+              fontSize: 10,
+              color: "var(--ink)",
+              opacity: 0.6,
+              marginTop: 1,
+            }}
+          >
+            4 repos · 21 commits
+          </div>
         </div>
       </div>
-    </NeoWidget>
+    </div>
   );
 }

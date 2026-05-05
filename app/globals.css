@@ -349,3 +349,37 @@ h3 {
   align-items: center;
   animation: ticker-scroll 30s linear infinite;
 }
+
+/* Float badge (header) */
+@keyframes float-badge {
+  0%, 100% { transform: rotate(-2deg) translateY(0px); }
+  50% { transform: rotate(-2deg) translateY(-4px); }
+}
+
+/* Jiggle (skill tags) */
+@keyframes jiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
+.skill-hover {
+  transition: background 0.15s, color 0.15s;
+  cursor: default;
+}
+
+.skill-hover:hover {
+  background: var(--ink) !important;
+  color: var(--accent-yellow) !important;
+  animation: jiggle 0.3s ease;
+}
+
+/* Button press-in */
+.btn-hover {
+  transition: box-shadow 0.08s, transform 0.08s;
+}
+
+.btn-hover:hover {
+  box-shadow: 1px 1px 0 var(--ink) !important;
+  transform: translate(3px, 3px);
+}

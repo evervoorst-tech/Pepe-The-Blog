@@ -5,7 +5,8 @@
       "Bash(node_modules\\\\.bin\\\\tsc --noEmit)",
       "PowerShell(New-Item *)",
       "Bash(python3 -c ' *)",
-      "Bash(sips -g pixelWidth -g pixelHeight images/pepe-header.jpeg images/pepe-footer.png images/pepe-favicon.png)"
+      "Bash(sips -g pixelWidth -g pixelHeight images/pepe-header.jpeg images/pepe-footer.png images/pepe-favicon.png)",
+      "WebFetch(domain:api.anthropic.com)"
     ]
   }
 }

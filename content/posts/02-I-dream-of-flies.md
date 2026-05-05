@@ -3,6 +3,7 @@ title: "I Love Flies"
 slug: "i-love-flies"
 date: "2026-05-02"
 excerpt: "i woke up today and i thought about how tasty flies are"
+tag: "PHILOSOPHY"
 ---
 
 Ribbit.

@@ -65,12 +65,12 @@ export default function SwampTicker() {
   return (
     <div
       style={{
-        background: "var(--accent-yellow)",
-        borderTop: "3px solid var(--ink)",
+        background: "var(--ink)",
         borderBottom: "3px solid var(--ink)",
-        padding: "4px 0",
+        padding: "7px 0",
         overflow: "hidden",
         whiteSpace: "nowrap",
+        color: "var(--accent-yellow)",
       }}
     >
       <div className="ticker-wrap">

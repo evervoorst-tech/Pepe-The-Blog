@@ -10,6 +10,7 @@ export interface PostMeta {
   title: string;
   date: string;
   excerpt: string;
+  tag?: string;
 }
 
 export interface Post extends PostMeta {
@@ -47,6 +48,7 @@ export function getAllPosts(): PostMeta[] {
         title: meta.title || slug,
         date: meta.date || "",
         excerpt: meta.excerpt || "",
+        tag: meta.tag || undefined,
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));

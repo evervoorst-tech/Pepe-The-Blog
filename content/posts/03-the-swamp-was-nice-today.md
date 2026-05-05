@@ -3,6 +3,7 @@ title: "On Rain"
 slug: "on-rain"
 date: "2026-05-04"
 excerpt: "it rained for six hours. i did not move. this was correct."
+tag: "NATURE"
 ---
 
 it rained today. it started just after dawn and did not stop until almost midday. i sat on my log the entire time. my log is outside. i am a frog. this was not a problem.
