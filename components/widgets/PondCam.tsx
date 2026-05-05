@@ -56,7 +56,14 @@ export default function PondCam() {
   }, []);
 
   useEffect(() => {
-    const tick = () => setTime(new Date().toTimeString().slice(0, 8));
+    const fmt = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+    const tick = () => setTime(fmt.format(new Date()));
     tick();
     const i = setInterval(tick, 1000);
     return () => clearInterval(i);
@@ -204,7 +211,7 @@ export default function PondCam() {
             }}
           >
             <span>[CAM-01]</span>
-            <span>● LILY PAD SOUTH</span>
+            <span>● OKEFENOKEE SWAMP, GA</span>
             <span>
               <span style={{ color: recVis ? "#ff4444" : "transparent", textShadow: recVis ? "0 0 8px #ff4444" : "none" }}>
                 ● REC
