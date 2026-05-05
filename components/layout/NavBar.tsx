@@ -8,6 +8,7 @@ const NAV = [
   { label: "HOME", href: "/" },
   { label: "POSTS", href: "/blog" },
   { label: "GUESTBOOK", href: "/guestbook" },
+  { label: "POND CAM", href: "/pond-cam" },
 ];
 
 export default function NavBar() {
