@@ -7,7 +7,9 @@ export default function AboutMyPond() {
         hi. i am pepe.
       </div>
       <div style={{ lineHeight: 1.5, marginBottom: 8 }}>
-        i live in a swamp. i blog about flies, rain, and the meaning of sitting very still.
+        i live in a swamp. i blog about flies, rain, and the meaning of sitting
+        very still. <br /> this website is a learning tool by pepega design.{" "}
+        <br />
       </div>
       <div style={{ marginBottom: 4 }}>📍 The Bog, Somewhere Damp</div>
       <div>

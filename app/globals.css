@@ -115,6 +115,37 @@ a:hover {
   transform: translate(4px, 4px);
 }
 
+/* Widget hover effect */
+.neo-widget {
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.neo-widget:hover {
+  box-shadow: 1px 1px 0 var(--ink) !important;
+  transform: translate(4px, 4px);
+}
+
+/* Tag hover effect */
+.neo-tag {
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  cursor: default;
+}
+
+.neo-tag:hover {
+  box-shadow: 0px 0px 0 var(--ink) !important;
+  transform: translate(3px, 3px);
+}
+
+/* widget-box hover (matches NeoWidget) */
+.widget-box {
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.widget-box:hover {
+  box-shadow: 1px 1px 0 var(--ink) !important;
+  transform: translate(4px, 4px);
+}
+
 /* Site-wide grid layout */
 .site-grid {
   display: grid;

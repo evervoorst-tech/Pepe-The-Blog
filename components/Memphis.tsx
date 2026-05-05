@@ -69,6 +69,7 @@ export function NeoWidget({
 }: NeoWidgetProps) {
   return (
     <div
+      className="neo-widget"
       style={{
         backgroundColor: "var(--surface)",
         border: "3px solid var(--ink)",
@@ -151,6 +152,7 @@ export function NeoTag({
 }) {
   return (
     <span
+      className="neo-tag"
       style={{
         border: "2px solid var(--ink)",
         background: color,
