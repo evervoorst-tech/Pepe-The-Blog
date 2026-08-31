@@ -1,59 +1,110 @@
+import Image from "next/image";
+import pepeFooter from "@/images/pepe-footer.png";
 import { flyCount } from "@/lib/swamp-data";
+import SwampTicker from "../widgets/SwampTicker";
+import {
+  MTriangle,
+  MCircle,
+  MDiamond,
+  MSquiggle,
+  MZigzag,
+} from "@/components/Memphis";
 
 export default function SiteFooter() {
   return (
     <footer
       style={{
-        background: "var(--ink)",
-        borderTop: "3px solid var(--ink)",
-        padding: "16px 24px",
+        background: "var(--swamp-green)",
+        borderTop: "3px solid #0a0a0a",
+        padding: "10px 14px",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: 12,
-        }}
-      >
-        <div
-          style={{
-            fontFamily: "var(--font-bricolage), sans-serif",
-            fontWeight: 800,
-            fontSize: 22,
-            color: "var(--accent-yellow)",
-            letterSpacing: -0.5,
-          }}
-        >
-          PEPE&apos;S BLOG
+      {/* Memphis corner shapes */}
+      <MTriangle
+        color="var(--m-yellow)"
+        size={24}
+        style={{ position: "absolute", top: 4, left: 10, opacity: 0.5 }}
+      />
+      <MCircle
+        color="var(--m-coral)"
+        size={16}
+        style={{ position: "absolute", top: 8, right: 30, opacity: 0.4 }}
+      />
+      <MDiamond
+        color="var(--m-blue)"
+        size={16}
+        style={{ position: "absolute", bottom: 4, right: 80, opacity: 0.4 }}
+      />
+
+      <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
+        <div style={{ marginBottom: 6, lineHeight: 0 }}>
+          <Image
+            src={pepeFooter}
+            alt="Pepe"
+            width={64}
+            height={64}
+            style={{ imageRendering: "pixelated", display: "inline-block" }}
+          />
         </div>
 
         <div
           style={{
-            fontFamily: "var(--font-space-grotesk), sans-serif",
-            fontSize: 14,
-            color: "#ffffff",
+            marginBottom: 6,
+            fontFamily: "var(--font-vt323), monospace",
+            fontSize: 20,
+            color: "var(--text-light)",
           }}
         >
-          Flies Caught:{" "}
-          <strong style={{ color: "var(--accent-yellow)" }}>
+          <span className="blink-slow" style={{ color: "var(--lime-bright)" }}>
+            [{" "}
+          </span>
+          Flies Caught So Far:{" "}
+          <strong style={{ color: "var(--m-yellow)" }}>
             {flyCount.toLocaleString()}
           </strong>
+          <span className="blink-slow" style={{ color: "var(--lime-bright)" }}>
+            {" "}
+            ]
+          </span>
         </div>
 
         <div
           style={{
-            fontFamily: "var(--font-space-mono), monospace",
-            fontSize: 11,
-            color: "rgba(255,255,255,0.45)",
+            display: "flex",
+            justifyContent: "center",
+            gap: 8,
+            marginBottom: 6,
           }}
         >
-          Pepega Designs · Pepe&apos;s Blog © 2026 ·{" "}
-          <a href="/guestbook" style={{ color: "var(--accent-yellow)" }}>
+          <MSquiggle color="var(--lime-bright)" width={60} />
+          <MZigzag color="var(--m-yellow)" width={60} />
+          <MSquiggle color="var(--lime-bright)" width={60} />
+        </div>
+
+        <div
+          style={{
+            fontFamily: "var(--font-vt323), monospace",
+            fontSize: 17,
+            color: "var(--text-dim)",
+          }}
+        >
+          Pepega Designs &nbsp;|&nbsp; Pepe&apos;s Blog © 2026 &nbsp;|&nbsp;
+          <a href="/guestbook" style={{ color: "var(--lime-bright)" }}>
             Sign the Lily Pad
           </a>
+        </div>
+
+        <div
+          style={{
+            marginTop: 4,
+            fontFamily: "var(--font-press-start), monospace",
+            fontSize: 6,
+            color: "var(--swamp-green)",
+          }}
+        >
+          NO FROGS WERE HARMED IN THE MAKING OF THIS WEBSITE
         </div>
       </div>
     </footer>

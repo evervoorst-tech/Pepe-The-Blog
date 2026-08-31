@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Space_Grotesk, Space_Mono } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  Space_Grotesk,
+  Space_Mono,
+} from "next/font/google";
+import "98.css";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
