@@ -416,6 +416,46 @@ h3 {
   animation: tag-glitch 4s ease infinite;
 }
 
+/* ── Taskbar ── */
+.taskbar-nav-btn {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  height: 28px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000000;
+  background: #c0c0c0;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.taskbar-menu-item {
+  display: block;
+  padding: 5px 16px;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 12px;
+  text-decoration: none;
+  color: #000000;
+  background: transparent;
+  outline-offset: -2px;
+}
+
+.taskbar-menu-item:hover,
+.taskbar-menu-item:focus-visible {
+  background: #000080;
+  color: #ffffff;
+  outline: none;
+}
+
+.taskbar-menu-item[aria-current="page"] {
+  background: #000080;
+  color: #ffffff;
+}
+
 /* Hover-reveal stamp */
 .post-card-stamp {
   position: absolute;

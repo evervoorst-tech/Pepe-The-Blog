@@ -21,6 +21,22 @@ export default function AboutMyPond() {
       <div
         style={{
           fontFamily: "var(--font-space-mono), monospace",
+          fontSize: 10,
+          lineHeight: 1.6,
+          marginBottom: 10,
+          opacity: 0.55,
+          fontStyle: "italic",
+          borderTop: "1px dashed var(--ink)",
+          paddingTop: 8,
+        }}
+      >
+        (Behind the lily pad: I&apos;m Eli Scott — not a developer, but I write the specs,
+        file the bugs, and ask the annoying-but-necessary questions that keep engineering
+        teams honest.)
+      </div>
+      <div
+        style={{
+          fontFamily: "var(--font-space-mono), monospace",
           fontSize: 11,
           marginBottom: 10,
           opacity: 0.7,

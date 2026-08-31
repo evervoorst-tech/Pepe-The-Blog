@@ -48,7 +48,7 @@ export default function Home() {
                   whiteSpace: "nowrap",
                 }}
               >
-                Latest Posts
+                Field Notes
               </div>
               <div
                 style={{

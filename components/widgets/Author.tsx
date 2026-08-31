@@ -64,7 +64,7 @@ export default function Author() {
               color: "var(--ink)",
             }}
           >
-            Pepega Designs
+            Eli Scott
           </div>
           <div
             style={{
@@ -75,7 +75,7 @@ export default function Author() {
               marginTop: 3,
             }}
           >
-            @evervoorst-tech
+            Product Owner Support
           </div>
           <div
             style={{

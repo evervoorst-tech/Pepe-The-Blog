@@ -1,4 +1,3 @@
-import NavBar from "@/components/layout/NavBar";
 import {
   MTriangle,
   MCircle,
@@ -10,11 +9,11 @@ import {
 import SwampTicker from "../widgets/SwampTicker";
 
 const SKILLS: [string, string][] = [
-  ["TypeScript", "var(--m-blue)"],
-  ["React", "var(--m-yellow)"],
-  ["Next.js", "var(--m-magenta)"],
-  ["Node.js", "var(--m-orange)"],
-  ["Git", "var(--m-coral)"],
+  ["Requirements", "var(--m-blue)"],
+  ["Prioritization", "var(--m-yellow)"],
+  ["QA & Acceptance Criteria", "var(--m-magenta)"],
+  ["Stakeholder Comms", "var(--m-orange)"],
+  ["Roadmapping", "var(--m-coral)"],
 ];
 
 export default function SiteHeader() {
@@ -92,14 +91,24 @@ export default function SiteHeader() {
             fontFamily: "var(--font-vt323), monospace",
             fontSize: 18,
             color: "var(--text-light)",
-            marginBottom: 8,
+            marginBottom: 4,
           }}
         >
           :: Dispatches from the Swamp :: Est. MM-XXVI ::
         </div>
 
-        {/* Nav */}
-        <NavBar />
+        <div
+          style={{
+            fontFamily: "var(--font-vt323), monospace",
+            fontSize: 14,
+            color: "var(--text-dim)",
+            marginBottom: 8,
+            letterSpacing: 1,
+          }}
+        >
+          Product Owner / SME · using this swamp to practice working with engineering teams
+        </div>
+
       </div>
 
       {/* Portfolio skills strip */}

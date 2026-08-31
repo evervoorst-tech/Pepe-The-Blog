@@ -6,6 +6,7 @@ import {
 } from "next/font/google";
 import "98.css";
 import "./globals.css";
+import Taskbar from "@/components/layout/Taskbar";
 
 const bricolage = Bricolage_Grotesque({
   weight: ["400", "700", "800"],
@@ -52,8 +53,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body style={{ paddingBottom: 36 }}>
         {children}
+        <Taskbar />
         {/* Film grain overlay */}
         <div
           aria-hidden="true"
